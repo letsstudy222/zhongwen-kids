@@ -8,7 +8,15 @@ export type VocabularyCategory =
   | 'colors'
   | 'numbers'
   | 'school'
-  | 'food';
+  | 'food'
+  | 'greetings'   // chào hỏi - YCT 1 core
+  | 'pronouns'    // đại từ - YCT 1 core
+  | 'body'        // bộ phận cơ thể
+  | 'time'        // thời gian
+  | 'verbs'       // động từ thông dụng
+  | 'adjectives'  // tính từ
+  | 'home'        // đồ vật trong nhà
+  | 'nature';     // thiên nhiên, thời tiết
 
 export interface VocabWord {
   id: string;

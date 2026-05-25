@@ -14,10 +14,10 @@ export const siteConfig = {
   contactEmail: 'hello@zhongwen-kids.example.com'
 };
 
-// Menu chính hiển thị trên thanh điều hướng
+// Menu chính hiển thị trên thanh điều hướng - sắp xếp theo lộ trình học
 export const mainNav = [
   { href: '/', label: 'Trang chủ', emoji: '🏠' },
-  { href: '/roadmap', label: 'Lộ trình', emoji: '🗺️' },
+  { href: '/foundation', label: 'Làm quen', emoji: '🌱' },
   { href: '/yct', label: 'YCT', emoji: '🎯' },
   { href: '/pinyin', label: 'Pinyin', emoji: '🔤' },
   { href: '/vocabulary', label: 'Từ vựng', emoji: '📚' },

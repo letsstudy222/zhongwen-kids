@@ -40,11 +40,11 @@ export default function HomePage() {
               </p>
 
               <div className="mt-7 flex flex-wrap gap-3">
-                <Link href="/roadmap" className="btn-primary">
-                  🚀 Bắt đầu học
+                <Link href="/foundation" className="btn-primary">
+                  🌱 Bắt đầu từ đầu
                 </Link>
-                <Link href="/games" className="btn-outline">
-                  🎮 Chơi trò chơi
+                <Link href="/yct" className="btn-outline">
+                  🎯 Xem lộ trình YCT
                 </Link>
               </div>
 
