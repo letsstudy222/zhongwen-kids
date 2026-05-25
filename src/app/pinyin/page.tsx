@@ -2,8 +2,8 @@ import { PageHero } from '@/components/layout/PageHero';
 import { PinyinTile } from '@/components/learning/PinyinTile';
 import { Card } from '@/components/ui/Card';
 import { Pill } from '@/components/ui/Pill';
+import { WritingPracticeSection } from '@/components/learning/WritingPracticeSection';
 import { initials, finals, tones } from '@/data/pinyin';
-import { CharacterWriter } from '@/components/learning/CharacterWriter';
 
 export const metadata = {
   title: 'Học Pinyin – Phiên âm tiếng Trung'
@@ -92,11 +92,17 @@ export default function PinyinPage() {
 
       {/* Tập viết */}
       <section className="bg-gradient-to-br from-primary-50 to-accent-50 dark:from-slate-800 dark:to-slate-700 py-16">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-display text-3xl font-extrabold text-center mb-6">
-            ✍️ Tập viết chữ Hán
-          </h2>
-          <CharacterWriter hanzi="你" pinyin="nǐ" meaningVi="bạn" />
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="font-display text-3xl font-extrabold mb-2">
+              ✍️ Luyện viết chữ Hán
+            </h2>
+            <p className="text-slate-600 dark:text-slate-300">
+              Bấm <strong>▶ Xem viết</strong> để xem thứ tự nét · Bấm <strong>✏️ Tự vẽ</strong> để luyện tập theo
+            </p>
+          </div>
+
+          <WritingPracticeSection />
         </div>
       </section>
     </>

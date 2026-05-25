@@ -31,16 +31,26 @@ export interface VocabWord {
   imageEmoji?: string;    // emoji minh họa
 }
 
-export interface Conversation {
-  id: string;
-  title: string;          // tiêu đề tiếng Việt
-  yctLevel: YctLevel;
-  lines: {
-    speaker: 'A' | 'B';
+export interface ConversationLine {
+  speaker: 'A' | 'B';
+  hanzi: string;
+  pinyin: string;
+  vi: string;
+  /** Phân tích từng từ — giúp bé hiểu tại sao nói vậy */
+  breakdown?: {
     hanzi: string;
     pinyin: string;
     vi: string;
+    note?: string;  // ghi chú ngữ pháp ngắn
   }[];
+}
+
+export interface Conversation {
+  id: string;
+  title: string;          // tiêu đề tiếng Việt
+  situation?: string;     // tình huống: "Ở trường", "Gặp bạn mới"
+  yctLevel: YctLevel;
+  lines: ConversationLine[];
 }
 
 export interface QuizQuestion {

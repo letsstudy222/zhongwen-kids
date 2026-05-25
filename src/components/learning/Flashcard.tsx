@@ -1,22 +1,16 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import dynamic from 'next/dynamic';
-import { AudioButton } from '@/components/ui/AudioButton';
+import { X, Volume2, Turtle } from 'lucide-react';
+import { useAudio } from '@/hooks/useAudio';
 import type { VocabWord } from '@/types';
 import { cn } from '@/utils/cn';
 
-// Dynamic load để không block SSR và tránh lỗi hanzi-writer trên server
+// Dynamic load hanzi-writer — chỉ chạy ở client
 const StrokeOrderWriter = dynamic(
   () => import('@/components/learning/StrokeOrderWriter').then((m) => m.StrokeOrderWriter),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="w-36 h-36 rounded-2xl bg-cream-50 dark:bg-slate-700/40 flex items-center justify-center">
-        <div className="w-6 h-6 border-2 border-primary-200 border-t-primary-500 rounded-full animate-spin" />
-      </div>
-    )
-  }
+  { ssr: false, loading: () => <div className="w-48 h-48 rounded-2xl bg-cream-100 dark:bg-slate-700 animate-pulse" /> }
 );
 
 interface FlashcardProps {
@@ -24,120 +18,158 @@ interface FlashcardProps {
   className?: string;
 }
 
-type Side = 'front' | 'meaning' | 'stroke';
-
 /**
- * Thẻ Flashcard 3 mặt:
- * 1. Front  - chữ Hán + emoji (nhấn để lật)
- * 2. Meaning - pinyin + nghĩa + audio (nhấn để xem nét)
- * 3. Stroke  - animation thứ tự viết (nhấn để về đầu)
+ * Thẻ từ vựng nhỏ — bấm vào mở modal lớn với:
+ * - Auto-play audio khi mở
+ * - Stroke order animation (hanzi-writer)
+ * - Bé tự vẽ
  */
 export function Flashcard({ word, className }: FlashcardProps) {
-  const [side, setSide] = useState<Side>('front');
+  const [open, setOpen] = useState(false);
+  const { play, playSlow } = useAudio();
 
-  const next = () => {
-    if (side === 'front') setSide('meaning');
-    else if (side === 'meaning') setSide('stroke');
-    else setSide('front');
-  };
+  // Auto-play khi mở modal
+  const openModal = useCallback(() => {
+    setOpen(true);
+    // Delay nhỏ để modal render trước khi phát âm
+    setTimeout(() => play(word.hanzi), 300);
+  }, [word.hanzi, play]);
 
-  const hintMap: Record<Side, string> = {
-    front: 'Chạm để xem nghĩa ✨',
-    meaning: 'Chạm để xem cách viết ✏️',
-    stroke: 'Chạm để quay lại 🔄'
-  };
+  // Đóng bằng phím Escape
+  useEffect(() => {
+    if (!open) return;
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false);
+    };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, [open]);
+
+  // Khoá scroll body khi modal mở
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [open]);
 
   return (
-    <div
-      className={cn(
-        'w-full h-64 cursor-pointer select-none',
-        className
-      )}
-      onClick={next}
-      style={{ perspective: '1000px' }}
-    >
-      <div
-        className="relative w-full h-full transition-transform duration-500"
-        style={{
-          transformStyle: 'preserve-3d',
-          transform:
-            side === 'front'
-              ? 'rotateY(0deg)'
-              : side === 'meaning'
-              ? 'rotateY(180deg)'
-              : 'rotateY(360deg)'
-        }}
+    <>
+      {/* ── CARD NHỎ ── */}
+      <button
+        onClick={openModal}
+        className={cn(
+          'w-full text-left rounded-3xl border border-primary-100 dark:border-primary-900/50',
+          'bg-gradient-to-br from-primary-50 via-cream-50 to-accent-50',
+          'dark:from-primary-900/20 dark:to-accent-900/20',
+          'shadow-soft hover:shadow-soft-lg hover:-translate-y-1 transition-all duration-200',
+          'flex flex-col items-center justify-center gap-1 p-4 min-h-[120px]',
+          'cursor-pointer active:scale-95',
+          className
+        )}
       >
-        {/* ── MẶT 1: Chữ Hán ── */}
-        <div
-          className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary-50 via-blush-100 to-accent-50 dark:from-primary-900/20 dark:to-accent-900/20 border border-primary-100 dark:border-primary-800/50 shadow-soft flex flex-col items-center justify-center p-6"
-          style={{ backfaceVisibility: 'hidden' }}
-        >
-          <div className="text-6xl mb-2">{word.imageEmoji ?? '✨'}</div>
-          <p className="font-chinese text-5xl font-bold text-primary-700 dark:text-primary-200">
-            {word.hanzi}
-          </p>
-          <p className="mt-3 text-xs text-slate-400 uppercase tracking-wider font-bold">
-            {hintMap.front}
-          </p>
-        </div>
+        <span className="text-3xl">{word.imageEmoji ?? '✨'}</span>
+        <span className="font-chinese text-3xl font-bold text-primary-700 dark:text-primary-200">
+          {word.hanzi}
+        </span>
+        <span className="text-xs text-secondary-600 dark:text-secondary-300 italic font-medium">
+          {word.pinyin}
+        </span>
+        <span className="text-sm font-bold text-slate-700 dark:text-slate-200">
+          {word.meaningVi}
+        </span>
+        <span className="text-xs text-slate-400 mt-1">Bấm để học ✨</span>
+      </button>
 
-        {/* ── MẶT 2: Nghĩa & Audio ── */}
+      {/* ── MODAL TO ── */}
+      {open && (
         <div
-          className="absolute inset-0 rounded-3xl bg-white dark:bg-slate-800 border border-secondary-100 dark:border-secondary-800/50 shadow-soft-secondary flex flex-col items-center justify-center p-5 gap-1"
-          style={{
-            backfaceVisibility: 'hidden',
-            transform: 'rotateY(180deg)'
-          }}
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          onClick={() => setOpen(false)}
         >
-          <p className="font-chinese text-3xl font-bold text-slate-700 dark:text-slate-100">
-            {word.hanzi}
-          </p>
-          <p className="text-secondary-600 dark:text-secondary-300 font-bold text-lg italic">
-            {word.pinyin}
-          </p>
-          <p className="text-xl font-bold text-slate-800 dark:text-slate-100">
-            {word.meaningVi}
-          </p>
-          {word.example && (
-            <p className="text-xs text-slate-500 dark:text-slate-400 italic text-center mt-1 leading-relaxed">
-              &ldquo;{word.example}&rdquo;
-              {word.exampleVi && (
-                <span className="block not-italic text-slate-400 text-xs">
-                  {word.exampleVi}
-                </span>
+          {/* Backdrop */}
+          <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
+
+          {/* Modal card */}
+          <div
+            className="relative z-10 w-full max-w-lg bg-white dark:bg-slate-800 rounded-3xl shadow-2xl overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header gradient */}
+            <div className="bg-gradient-to-br from-primary-300 to-accent-300 p-6 text-center text-white">
+              <button
+                onClick={() => setOpen(false)}
+                className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              <div className="text-5xl mb-2">{word.imageEmoji ?? '✨'}</div>
+              <p className="font-chinese text-6xl font-bold leading-none drop-shadow-md">
+                {word.hanzi}
+              </p>
+              <p className="mt-2 text-xl italic opacity-90 font-medium">{word.pinyin}</p>
+              <p className="text-2xl font-bold mt-1">{word.meaningVi}</p>
+
+              {/* Audio buttons */}
+              <div className="flex items-center justify-center gap-3 mt-4">
+                <button
+                  onClick={() => play(word.hanzi)}
+                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 hover:bg-white/30 font-bold text-sm transition-colors"
+                >
+                  <Volume2 className="w-4 h-4" /> Nghe
+                </button>
+                <button
+                  onClick={() => playSlow(word.hanzi)}
+                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 hover:bg-white/30 font-bold text-sm transition-colors"
+                >
+                  <Turtle className="w-4 h-4" /> Chậm 🐢
+                </button>
+              </div>
+            </div>
+
+            {/* Body */}
+            <div className="p-6">
+              {/* Ví dụ câu */}
+              {word.example && (
+                <div className="mb-5 p-4 rounded-2xl bg-secondary-50 dark:bg-secondary-900/20 border border-secondary-100 dark:border-secondary-900/40">
+                  <p className="text-xs font-bold text-secondary-600 dark:text-secondary-300 uppercase tracking-wider mb-1">
+                    💬 Ví dụ câu
+                  </p>
+                  <p className="font-chinese text-lg font-bold">{word.example}</p>
+                  {word.exampleVi && (
+                    <p className="text-sm text-slate-500 italic mt-1">{word.exampleVi}</p>
+                  )}
+                  <button
+                    onClick={() => play(word.example!)}
+                    className="mt-2 flex items-center gap-1 text-xs text-secondary-600 dark:text-secondary-300 hover:underline"
+                  >
+                    <Volume2 className="w-3 h-3" /> Nghe câu
+                  </button>
+                </div>
               )}
-            </p>
-          )}
-          <div className="mt-2" onClick={(e) => e.stopPropagation()}>
-            {/* Truyền chữ Hán — TTS tự đọc đúng thanh điệu */}
-            <AudioButton text={word.hanzi} showSlow />
-          </div>
-          <p className="mt-1 text-xs text-slate-400 uppercase tracking-wider font-bold">
-            {hintMap.meaning}
-          </p>
-        </div>
 
-        {/* ── MẶT 3: Thứ tự nét viết ── */}
-        <div
-          className="absolute inset-0 rounded-3xl bg-cream-50 dark:bg-slate-800/80 border border-accent-100 dark:border-accent-900/50 shadow-soft flex flex-col items-center justify-center p-4 gap-2"
-          style={{
-            backfaceVisibility: 'hidden',
-            transform: 'rotateY(360deg)'
-          }}
-        >
-          <p className="text-xs font-bold text-accent-600 dark:text-accent-300 uppercase tracking-wider">
-            ✏️ Thứ tự viết
-          </p>
-          {/* Chặn click ngoài để controls không trigger flip */}
-          <div onClick={(e) => e.stopPropagation()}>
-            <StrokeOrderWriter hanzi={word.hanzi} size={140} animate quiz />
+              {/* Stroke order */}
+              <div>
+                <p className="text-xs font-bold text-accent-600 dark:text-accent-300 uppercase tracking-wider mb-3">
+                  ✏️ Thứ tự viết nét
+                </p>
+                <div className="flex flex-wrap gap-4 justify-center">
+                  {/* Với từ ghép (2+ chữ), hiện từng chữ riêng */}
+                  {Array.from(word.hanzi).map((char, i) => (
+                    <div key={i} className="flex flex-col items-center gap-1">
+                      {char.trim() && /[\u4e00-\u9fff]/.test(char) ? (
+                        <StrokeOrderWriter hanzi={char} size={160} animate quiz />
+                      ) : null}
+                    </div>
+                  ))}
+                </div>
+                <p className="text-center text-xs text-slate-400 mt-3">
+                  Nhấn <strong>▶ Xem viết</strong> để xem animation · <strong>✏️ Tự vẽ</strong> để luyện tập
+                </p>
+              </div>
+            </div>
           </div>
-          <p className="text-xs text-slate-400 uppercase tracking-wider font-bold">
-            {hintMap.stroke}
-          </p>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 }
