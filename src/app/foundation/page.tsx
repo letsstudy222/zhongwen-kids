@@ -3,8 +3,8 @@ import { PageHero } from '@/components/layout/PageHero';
 import { Card } from '@/components/ui/Card';
 import { Pill } from '@/components/ui/Pill';
 import { Button } from '@/components/ui/Button';
-import { AudioButton } from '@/components/ui/AudioButton';
 import { Mascot } from '@/components/ui/Mascot';
+import { ToneSection, FirstCharactersSection } from '@/components/learning/FoundationClientSections';
 import {
   basicStrokes,
   strokeRules,
@@ -204,28 +204,7 @@ export default function FoundationPage() {
               Hãy thử nói &ldquo;ma&rdquo; với 4 cách lên xuống giọng khác nhau - bé sẽ thấy có 4 nghĩa hoàn toàn khác nhau đấy!
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {[
-                { num: 1, mark: 'mā', hanzi: '妈', meaning: 'mẹ', textClass: 'text-red-400', desc: 'Giọng đều, cao, kéo dài', visual: '➖' },
-                { num: 2, mark: 'má', hanzi: '麻', meaning: 'cây gai', textClass: 'text-amber-500', desc: 'Đi lên - như đang hỏi "Hả?"', visual: '↗️' },
-                { num: 3, mark: 'mǎ', hanzi: '马', meaning: 'ngựa', textClass: 'text-teal-500', desc: 'Xuống rồi lên - giọng bẻ cong', visual: '✓' },
-                { num: 4, mark: 'mà', hanzi: '骂', meaning: 'mắng', textClass: 'text-indigo-400', desc: 'Đi xuống - mạnh, dứt khoát', visual: '↘️' }
-              ].map((tone) => (
-                <div key={tone.num} className="flex items-center gap-3 p-4 rounded-2xl bg-cream-50 dark:bg-slate-700/30 border border-cream-100 dark:border-slate-700">
-                  <div className={`text-4xl ${tone.textClass}`}>{tone.visual}</div>
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2">
-                      <span className={`font-bold text-lg ${tone.textClass}`}>Thanh {tone.num}</span>
-                      <span className={`font-mono text-xl ${tone.textClass}`}>{tone.mark}</span>
-                      <span className="font-chinese text-xl">{tone.hanzi}</span>
-                    </div>
-                    <p className="text-xs text-slate-500">{tone.desc}</p>
-                    <p className="text-sm font-bold">= {tone.meaning}</p>
-                  </div>
-                  <AudioButton text={tone.mark} showSlow />
-                </div>
-              ))}
-            </div>
+            <ToneSection />
 
             <div className="mt-4 p-4 rounded-2xl bg-primary-50 dark:bg-primary-900/20">
               <p className="text-sm text-slate-700 dark:text-slate-200">
@@ -360,39 +339,7 @@ export default function FoundationPage() {
             </p>
           </Card>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {firstCharacters.map((char, idx) => (
-              <Card key={char.hanzi} className="!p-5">
-                <div className="flex items-start gap-4">
-                  <div className="text-center flex-shrink-0">
-                    <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary-100 to-blush-100 dark:from-primary-900/30 dark:to-blush-300/10 flex items-center justify-center">
-                      <span className="font-chinese text-5xl font-bold text-primary-700 dark:text-primary-200">
-                        {char.hanzi}
-                      </span>
-                    </div>
-                    <AudioButton text={char.hanzi} className="mt-2" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-baseline gap-2 mb-1">
-                      <p className="text-xs font-bold text-primary-500">
-                        Chữ {idx + 1}
-                      </p>
-                      <Pill color="slate">{char.strokes} nét</Pill>
-                    </div>
-                    <p className="font-mono text-secondary-600 dark:text-secondary-300 font-bold italic">
-                      {char.pinyin}
-                    </p>
-                    <p className="font-display font-extrabold text-lg">
-                      {char.meaningVi}
-                    </p>
-                    <p className="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
-                      <strong className="text-primary-600">💭 Câu chuyện:</strong> {char.story}
-                    </p>
-                  </div>
-                </div>
-              </Card>
-            ))}
-          </div>
+          <FirstCharactersSection characters={firstCharacters} />
 
           <Card className="mt-6 bg-gradient-to-br from-secondary-50 to-success-50 dark:from-secondary-900/20 dark:to-success-900/20">
             <div className="text-center">
