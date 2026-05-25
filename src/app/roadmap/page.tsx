@@ -42,7 +42,7 @@ export default function RoadmapPage() {
                         )}
                       </div>
                       <div className="flex items-center gap-3">
-                        <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${stage.color} flex items-center justify-center text-3xl shadow-cute`}>
+                        <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${stage.color} flex items-center justify-center text-3xl shadow-soft`}>
                           {stage.emoji}
                         </div>
                         <div>
@@ -61,7 +61,7 @@ export default function RoadmapPage() {
                       <ul className="mt-4 space-y-2">
                         {stage.goals.map((g, gi) => (
                           <li key={gi} className="flex items-start gap-2 text-sm">
-                            <CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" />
+                            <CheckCircle2 className="w-4 h-4 text-success-500 mt-0.5 flex-shrink-0" />
                             <span>{g}</span>
                           </li>
                         ))}
@@ -80,7 +80,7 @@ export default function RoadmapPage() {
 
                   {/* Marker */}
                   <div className="absolute left-8 md:left-1/2 top-6 -translate-x-1/2 z-10">
-                    <div className={`w-14 h-14 rounded-full bg-gradient-to-br ${stage.color} flex items-center justify-center text-2xl shadow-cute border-4 border-cream dark:border-slate-900`}>
+                    <div className={`w-14 h-14 rounded-full bg-gradient-to-br ${stage.color} flex items-center justify-center text-2xl shadow-soft border-4 border-cream dark:border-slate-900`}>
                       {stage.order}
                     </div>
                   </div>

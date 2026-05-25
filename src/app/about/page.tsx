@@ -14,25 +14,25 @@ export default function AboutPage() {
       icon: Heart,
       title: 'Yêu thương trẻ em',
       desc: 'Mọi nội dung được thiết kế phù hợp tâm lý lứa tuổi tiểu học.',
-      color: 'from-rose-300 to-pink-400'
+      color: 'from-primary-300 to-blush-300'
     },
     {
       icon: Target,
       title: 'Định hướng YCT',
       desc: 'Lộ trình bám sát chương trình YCT 1–4 thay vì HSK nặng nề.',
-      color: 'from-sky-300 to-blue-400'
+      color: 'from-secondary-200 to-lavender-300'
     },
     {
       icon: Sparkles,
       title: 'Học bằng cảm xúc',
       desc: 'Bài hát, trò chơi, hoạt hình giúp ghi nhớ lâu hơn.',
-      color: 'from-amber-300 to-orange-400'
+      color: 'from-accent-300 to-accent-400'
     },
     {
       icon: Users,
       title: 'Cùng cha mẹ',
       desc: 'Phụ huynh có dashboard riêng để đồng hành cùng con.',
-      color: 'from-emerald-300 to-teal-400'
+      color: 'from-secondary-300 to-secondary-400'
     }
   ];
 
@@ -80,7 +80,7 @@ export default function AboutPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {values.map((v, i) => (
               <Card key={i} interactive className="text-center">
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${v.color} flex items-center justify-center mx-auto mb-3 shadow-cute`}>
+                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${v.color} flex items-center justify-center mx-auto mb-3 shadow-soft`}>
                   <v.icon className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="font-display text-xl">{v.title}</h3>

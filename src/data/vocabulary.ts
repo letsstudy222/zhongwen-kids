@@ -73,10 +73,10 @@ export const categoryMeta: Record<
   string,
   { labelVi: string; emoji: string; gradient: string }
 > = {
-  family: { labelVi: 'Gia đình', emoji: '👨‍👩‍👧', gradient: 'from-rose-300 to-pink-400' },
-  animals: { labelVi: 'Động vật', emoji: '🐼', gradient: 'from-emerald-300 to-teal-400' },
-  colors: { labelVi: 'Màu sắc', emoji: '🌈', gradient: 'from-purple-300 to-fuchsia-400' },
-  numbers: { labelVi: 'Con số', emoji: '🔢', gradient: 'from-sky-300 to-blue-400' },
-  school: { labelVi: 'Trường học', emoji: '🏫', gradient: 'from-amber-300 to-orange-400' },
-  food: { labelVi: 'Thức ăn', emoji: '🍱', gradient: 'from-lime-300 to-green-400' }
+  family: { labelVi: 'Gia đình', emoji: '👨‍👩‍👧', gradient: 'from-primary-300 to-blush-300' },
+  animals: { labelVi: 'Động vật', emoji: '🐼', gradient: 'from-secondary-300 to-secondary-400' },
+  colors: { labelVi: 'Màu sắc', emoji: '🌈', gradient: 'from-lavender-300 to-lavender-400' },
+  numbers: { labelVi: 'Con số', emoji: '🔢', gradient: 'from-secondary-200 to-lavender-300' },
+  school: { labelVi: 'Trường học', emoji: '🏫', gradient: 'from-accent-300 to-accent-400' },
+  food: { labelVi: 'Thức ăn', emoji: '🍱', gradient: 'from-success-300 to-secondary-300' }
 };

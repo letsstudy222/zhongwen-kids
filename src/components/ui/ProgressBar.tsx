@@ -1,7 +1,7 @@
 import { cn } from '@/utils/cn';
 
 interface ProgressBarProps {
-  value: number;        // 0 -> 100
+  value: number; // 0 -> 100
   max?: number;
   showLabel?: boolean;
   color?: 'primary' | 'secondary' | 'accent' | 'success';
@@ -9,10 +9,10 @@ interface ProgressBarProps {
 }
 
 const colorMap = {
-  primary: 'bg-primary-500',
-  secondary: 'bg-secondary-500',
-  accent: 'bg-accent-400',
-  success: 'bg-emerald-500'
+  primary: 'bg-gradient-to-r from-primary-400 to-primary-500',
+  secondary: 'bg-gradient-to-r from-secondary-400 to-secondary-500',
+  accent: 'bg-gradient-to-r from-accent-300 to-accent-400',
+  success: 'bg-gradient-to-r from-success-400 to-success-500'
 };
 
 export function ProgressBar({
@@ -26,10 +26,10 @@ export function ProgressBar({
 
   return (
     <div className={cn('w-full', className)}>
-      <div className="h-3 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+      <div className="h-3 bg-cream-100 dark:bg-slate-700 rounded-full overflow-hidden">
         <div
           className={cn(
-            'h-full rounded-full transition-all duration-500 ease-out',
+            'h-full rounded-full transition-all duration-700 ease-out',
             colorMap[color]
           )}
           style={{ width: `${percentage}%` }}

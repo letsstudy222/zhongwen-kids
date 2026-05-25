@@ -1,16 +1,17 @@
 // Helper liên quan đến pinyin & thanh điệu tiếng Trung
+// Màu thanh điệu theo chuẩn quốc tế (Pleco/Dummitt method) - giúp bé phân biệt nhanh
 
 const TONE_COLORS: Record<number, string> = {
-  1: 'text-rose-500',     // thanh 1 — cao bằng
-  2: 'text-amber-500',    // thanh 2 — đi lên
-  3: 'text-emerald-500',  // thanh 3 — xuống rồi lên
-  4: 'text-sky-500',      // thanh 4 — đi xuống
+  1: 'text-red-400',      // thanh 1 — cao bằng (đỏ dịu)
+  2: 'text-amber-500',    // thanh 2 — đi lên (vàng cam)
+  3: 'text-teal-500',     // thanh 3 — xuống rồi lên (xanh ngọc)
+  4: 'text-indigo-400',   // thanh 4 — đi xuống (xanh chàm dịu)
   0: 'text-slate-400'     // thanh nhẹ
 };
 
 /**
  * Trả về class màu cho từng thanh điệu trong pinyin.
- * Giúp trẻ dễ phân biệt thanh điệu bằng màu sắc.
+ * Bốn màu tone tuân thủ chuẩn quốc tế để bé dễ phân biệt thanh điệu bằng màu sắc.
  */
 export function getToneColor(tone: number): string {
   return TONE_COLORS[tone] ?? TONE_COLORS[0];

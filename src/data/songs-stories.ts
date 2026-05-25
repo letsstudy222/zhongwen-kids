@@ -30,7 +30,7 @@ export const songs: Song[] = [
     duration: '1:30',
     difficulty: 'Dễ',
     emoji: '🐯',
-    color: 'from-orange-300 to-amber-400',
+    color: 'from-accent-300 to-accent-400',
     lyrics: [
       '两只老虎，两只老虎，跑得快！跑得快！',
       'Liǎng zhī lǎohǔ, liǎng zhī lǎohǔ, pǎo de kuài! Pǎo de kuài!',
@@ -45,7 +45,7 @@ export const songs: Song[] = [
     duration: '2:00',
     difficulty: 'Dễ',
     emoji: '⭐',
-    color: 'from-sky-300 to-indigo-400'
+    color: 'from-secondary-300 to-lavender-300'
   },
   {
     id: 's-3',
@@ -55,7 +55,7 @@ export const songs: Song[] = [
     duration: '1:45',
     difficulty: 'Dễ',
     emoji: '✨',
-    color: 'from-yellow-300 to-amber-400'
+    color: 'from-accent-200 to-accent-300'
   },
   {
     id: 's-4',
@@ -65,7 +65,7 @@ export const songs: Song[] = [
     duration: '2:15',
     difficulty: 'Trung bình',
     emoji: '🦆',
-    color: 'from-lime-300 to-emerald-400'
+    color: 'from-success-300 to-secondary-300'
   }
 ];
 
@@ -78,7 +78,7 @@ export const stories: Story[] = [
     duration: '5 phút',
     yctLevel: 1,
     emoji: '👧',
-    color: 'from-red-300 to-rose-400'
+    color: 'from-primary-300 to-primary-400'
   },
   {
     id: 'st-2',
@@ -88,7 +88,7 @@ export const stories: Story[] = [
     duration: '7 phút',
     yctLevel: 2,
     emoji: '🐷',
-    color: 'from-pink-300 to-rose-400'
+    color: 'from-blush-300 to-primary-300'
   },
   {
     id: 'st-3',
@@ -98,7 +98,7 @@ export const stories: Story[] = [
     duration: '6 phút',
     yctLevel: 2,
     emoji: '🐢',
-    color: 'from-emerald-300 to-teal-400'
+    color: 'from-secondary-300 to-secondary-400'
   },
   {
     id: 'st-4',

@@ -146,8 +146,8 @@ export function Quiz({ questions, onComplete }: QuizProps) {
                 'p-4 rounded-2xl border-2 font-bold text-left transition-all',
                 state === 'idle' && 'bg-white dark:bg-slate-700 border-slate-200 dark:border-slate-600 hover:border-primary-300',
                 state === 'selected' && 'bg-primary-100 border-primary-400 dark:bg-primary-900/40',
-                state === 'correct' && 'bg-emerald-100 border-emerald-400 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-200',
-                state === 'wrong' && 'bg-rose-100 border-rose-400 text-rose-700 dark:bg-rose-900/40 dark:text-rose-200 animate-shake'
+                state === 'correct' && 'bg-success-100 border-success-400 text-secondary-700 dark:bg-success-900/40 dark:text-success-200',
+                state === 'wrong' && 'bg-primary-50 border-primary-400 text-primary-700 dark:bg-primary-900/40 dark:text-primary-200 animate-shake'
               )}
             >
               <div className="flex items-center justify-between">

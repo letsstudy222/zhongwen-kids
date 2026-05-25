@@ -41,19 +41,19 @@ export default function PinyinPage() {
           <h3 className="font-display text-xl mb-3">💡 Mẹo nhớ thanh điệu</h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 text-sm">
             <div className="flex gap-2">
-              <span className="font-extrabold text-rose-500 text-2xl">1.</span>
+              <span className="font-extrabold text-primary-500 text-2xl">1.</span>
               <p>Cao và bằng – như khi <em>hát</em> nốt cao đều.</p>
             </div>
             <div className="flex gap-2">
-              <span className="font-extrabold text-amber-500 text-2xl">2.</span>
+              <span className="font-extrabold text-accent-500 text-2xl">2.</span>
               <p>Đi lên – như <em>hỏi</em> &ldquo;Cái gì?&rdquo;</p>
             </div>
             <div className="flex gap-2">
-              <span className="font-extrabold text-emerald-500 text-2xl">3.</span>
+              <span className="font-extrabold text-success-500 text-2xl">3.</span>
               <p>Xuống rồi lên – như khi <em>ngạc nhiên</em>.</p>
             </div>
             <div className="flex gap-2">
-              <span className="font-extrabold text-sky-500 text-2xl">4.</span>
+              <span className="font-extrabold text-secondary-500 text-2xl">4.</span>
               <p>Đi xuống dứt khoát – như khi <em>ra lệnh</em>.</p>
             </div>
           </div>

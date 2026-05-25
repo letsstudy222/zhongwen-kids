@@ -13,7 +13,7 @@ interface FlashcardProps {
 /**
  * Thẻ Flashcard có thể lật để xem nghĩa.
  * Mặt trước: chữ Hán + emoji minh hoạ.
- * Mặt sau: pinyin + nghĩa tiếng Việt + ví dụ.
+ * Mặt sau: pinyin + nghĩa tiếng Việt + ví dụ + nút phát âm (có cả phát chậm).
  */
 export function Flashcard({ word, className }: FlashcardProps) {
   const [flipped, setFlipped] = useState(false);
@@ -31,9 +31,9 @@ export function Flashcard({ word, className }: FlashcardProps) {
           transform: flipped ? 'rotateY(180deg)' : 'rotateY(0)'
         }}
       >
-        {/* Front */}
+        {/* Front - mặt chính */}
         <div
-          className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary-100 to-accent-100 dark:from-primary-900/30 dark:to-accent-900/30 border-2 border-primary-200 dark:border-primary-800 shadow-cute flex flex-col items-center justify-center p-6"
+          className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary-50 via-blush-100 to-accent-50 dark:from-primary-900/20 dark:to-accent-900/20 border border-primary-100 dark:border-primary-800/50 shadow-soft flex flex-col items-center justify-center p-6"
           style={{ backfaceVisibility: 'hidden' }}
         >
           <div className="text-6xl mb-2">{word.imageEmoji ?? '✨'}</div>
@@ -41,19 +41,21 @@ export function Flashcard({ word, className }: FlashcardProps) {
             {word.hanzi}
           </p>
           <p className="mt-2 text-xs text-slate-500 uppercase tracking-wider font-bold">
-            Nhấn để lật
+            Chạm để lật ✨
           </p>
         </div>
 
-        {/* Back */}
+        {/* Back - mặt nghĩa */}
         <div
-          className="absolute inset-0 rounded-3xl bg-white dark:bg-slate-800 border-2 border-secondary-200 dark:border-secondary-800 shadow-cute flex flex-col items-center justify-center p-6"
+          className="absolute inset-0 rounded-3xl bg-white dark:bg-slate-800 border border-secondary-100 dark:border-secondary-800/50 shadow-soft-secondary flex flex-col items-center justify-center p-6"
           style={{
             backfaceVisibility: 'hidden',
             transform: 'rotateY(180deg)'
           }}
         >
-          <p className="font-chinese text-3xl font-bold mb-1">{word.hanzi}</p>
+          <p className="font-chinese text-3xl font-bold mb-1 text-slate-700 dark:text-slate-100">
+            {word.hanzi}
+          </p>
           <p className="text-secondary-600 dark:text-secondary-300 font-bold text-lg italic">
             {word.pinyin}
           </p>
@@ -65,11 +67,8 @@ export function Flashcard({ word, className }: FlashcardProps) {
               &ldquo;{word.example}&rdquo;
             </p>
           )}
-          <div
-            className="mt-3"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <AudioButton text={word.hanzi} />
+          <div className="mt-3" onClick={(e) => e.stopPropagation()}>
+            <AudioButton text={word.hanzi} showSlow />
           </div>
         </div>
       </div>

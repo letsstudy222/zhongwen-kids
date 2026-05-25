@@ -54,7 +54,7 @@ export default function ContactPage() {
           </h2>
 
           {sent && (
-            <div className="mb-4 p-4 rounded-2xl bg-emerald-100 dark:bg-emerald-900/30 border-2 border-emerald-200 text-emerald-700 dark:text-emerald-200 font-bold flex items-center gap-2">
+            <div className="mb-4 p-4 rounded-2xl bg-success-100 dark:bg-success-900/30 border border-success-200 text-secondary-700 dark:text-success-200 font-bold flex items-center gap-2">
               <span>✅</span> Cảm ơn bạn! Tin nhắn đã được gửi (demo).
             </div>
           )}
@@ -69,7 +69,7 @@ export default function ContactPage() {
                   type="text"
                   required
                   placeholder="Nguyễn Văn A"
-                  className="w-full px-4 py-3 rounded-2xl border-2 border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:outline-none focus:border-primary-400"
+                  className="w-full px-4 py-3 rounded-2xl border border-cream-200 dark:border-slate-700 dark:bg-slate-800 focus:outline-none focus:border-primary-400"
                 />
               </div>
               <div>
@@ -78,7 +78,7 @@ export default function ContactPage() {
                   type="email"
                   required
                   placeholder="ban@example.com"
-                  className="w-full px-4 py-3 rounded-2xl border-2 border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:outline-none focus:border-primary-400"
+                  className="w-full px-4 py-3 rounded-2xl border border-cream-200 dark:border-slate-700 dark:bg-slate-800 focus:outline-none focus:border-primary-400"
                 />
               </div>
             </div>
@@ -90,7 +90,7 @@ export default function ContactPage() {
                 {['Phụ huynh', 'Giáo viên', 'Học sinh', 'Khác'].map((r) => (
                   <label
                     key={r}
-                    className="px-4 py-2 rounded-full border-2 border-slate-200 dark:border-slate-700 cursor-pointer hover:border-primary-300 text-sm font-bold"
+                    className="px-4 py-2 rounded-full border border-cream-200 dark:border-slate-700 cursor-pointer hover:border-primary-300 text-sm font-bold"
                   >
                     <input type="radio" name="role" className="mr-1.5" />
                     {r}
@@ -101,7 +101,7 @@ export default function ContactPage() {
             <div>
               <label className="block text-sm font-bold mb-1.5">Chủ đề</label>
               <select
-                className="w-full px-4 py-3 rounded-2xl border-2 border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:outline-none focus:border-primary-400"
+                className="w-full px-4 py-3 rounded-2xl border border-cream-200 dark:border-slate-700 dark:bg-slate-800 focus:outline-none focus:border-primary-400"
                 defaultValue=""
               >
                 <option value="" disabled>
@@ -121,7 +121,7 @@ export default function ContactPage() {
                 required
                 rows={5}
                 placeholder="Bạn muốn chia sẻ điều gì với chúng tôi?"
-                className="w-full px-4 py-3 rounded-2xl border-2 border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:outline-none focus:border-primary-400 resize-none"
+                className="w-full px-4 py-3 rounded-2xl border border-cream-200 dark:border-slate-700 dark:bg-slate-800 focus:outline-none focus:border-primary-400 resize-none"
               />
             </div>
             <Button type="submit" size="lg" variant="primary">

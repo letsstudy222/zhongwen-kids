@@ -25,7 +25,7 @@ export const roadmap: RoadmapStage[] = [
       'Làm quen 4 thanh điệu qua bài hát',
       'Chào hỏi đơn giản'
     ],
-    color: 'from-emerald-300 to-green-400'
+    color: 'from-secondary-300 to-secondary-400'
   },
   {
     id: 'stage-2',
@@ -41,7 +41,7 @@ export const roadmap: RoadmapStage[] = [
       'Hội thoại ngắn về gia đình, lớp học',
       'Tập viết 20 chữ Hán đầu tiên'
     ],
-    color: 'from-rose-300 to-pink-400'
+    color: 'from-primary-300 to-primary-400'
   },
   {
     id: 'stage-3',
@@ -57,7 +57,7 @@ export const roadmap: RoadmapStage[] = [
       'Đặt câu đơn giản',
       'Viết tên, số, màu sắc bằng chữ Hán'
     ],
-    color: 'from-amber-300 to-orange-400'
+    color: 'from-accent-300 to-accent-400'
   },
   {
     id: 'stage-4',
@@ -73,7 +73,7 @@ export const roadmap: RoadmapStage[] = [
       'Đọc và kể lại truyện ngắn',
       'Tham gia hội thoại 4-6 câu'
     ],
-    color: 'from-sky-300 to-blue-400'
+    color: 'from-lavender-300 to-lavender-400'
   },
   {
     id: 'stage-5',
@@ -89,6 +89,6 @@ export const roadmap: RoadmapStage[] = [
       'Viết đoạn văn ngắn',
       'Sẵn sàng chuyển sang HSK 1-2'
     ],
-    color: 'from-purple-300 to-fuchsia-400'
+    color: 'from-primary-400 to-accent-400'
   }
 ];

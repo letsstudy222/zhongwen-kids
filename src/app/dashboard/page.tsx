@@ -34,7 +34,7 @@ export default function DashboardPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
           <StreakCard />
 
-          <Card className="!p-5 bg-gradient-to-br from-primary-100 to-pink-100 dark:from-primary-900/20 dark:to-pink-900/20 border-primary-200">
+          <Card className="!p-5 bg-gradient-to-br from-primary-50 to-primary-100 dark:from-primary-900/20 dark:to-primary-800/20 border-primary-200">
             <div className="flex items-center gap-4">
               <div className="text-5xl">⭐</div>
               <div>
@@ -56,7 +56,7 @@ export default function DashboardPage() {
             </div>
           </Card>
 
-          <Card className="!p-5 bg-gradient-to-br from-secondary-100 to-sky-100 dark:from-secondary-900/20 dark:to-sky-900/20 border-secondary-200">
+          <Card className="!p-5 bg-gradient-to-br from-secondary-50 to-secondary-100 dark:from-secondary-900/20 dark:to-secondary-800/20 border-secondary-200">
             <div className="flex items-center gap-4">
               <div className="text-5xl">🏆</div>
               <div>

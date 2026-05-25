@@ -16,7 +16,7 @@ const levels = [
     title: 'YCT 1',
     subtitle: 'Bắt đầu hành trình',
     emoji: '🌱',
-    color: 'from-emerald-300 to-green-400',
+    color: 'from-secondary-300 to-secondary-400',
     description: 'Từ vựng đời thường, chào hỏi đơn giản. Dành cho bé lớp 1-2.'
   },
   {
@@ -24,7 +24,7 @@ const levels = [
     title: 'YCT 2',
     subtitle: 'Giao tiếp cơ bản',
     emoji: '🎈',
-    color: 'from-amber-300 to-orange-400',
+    color: 'from-accent-300 to-accent-400',
     description: 'Câu đơn giản, miêu tả người và vật. Dành cho bé lớp 2-3.'
   },
   {
@@ -32,7 +32,7 @@ const levels = [
     title: 'YCT 3',
     subtitle: 'Mở rộng hội thoại',
     emoji: '🚀',
-    color: 'from-sky-300 to-blue-400',
+    color: 'from-secondary-200 to-lavender-300',
     description: 'Câu phức, kể chuyện, đặt câu hỏi. Dành cho bé lớp 3-4.'
   },
   {
@@ -40,7 +40,7 @@ const levels = [
     title: 'YCT 4',
     subtitle: 'Sẵn sàng HSK',
     emoji: '🏆',
-    color: 'from-purple-300 to-fuchsia-400',
+    color: 'from-lavender-300 to-lavender-400',
     description: 'Đoạn văn ngắn, đọc hiểu cơ bản. Dành cho bé lớp 4-5.'
   }
 ];

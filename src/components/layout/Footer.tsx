@@ -4,7 +4,7 @@ import { Github, Facebook, Youtube, Mail } from 'lucide-react';
 
 export function Footer() {
   return (
-    <footer className="relative bg-gradient-to-br from-primary-50 via-cream to-secondary-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 border-t-2 border-slate-100 dark:border-slate-800 mt-20">
+    <footer className="relative bg-gradient-to-br from-primary-50 via-cream-50 to-secondary-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 border-t border-cream-100 dark:border-slate-800 mt-20">
       {/* Decorative wave */}
       <svg viewBox="0 0 1440 60" className="w-full h-12 -mt-12 text-cream dark:text-slate-900" fill="currentColor">
         <path d="M0,30 C320,60 720,0 1440,30 L1440,60 L0,60 Z" />
@@ -15,7 +15,7 @@ export function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary-400 to-accent-400 flex items-center justify-center text-3xl shadow-cute">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary-300 to-accent-300 flex items-center justify-center text-3xl shadow-soft">
                 🐼
               </div>
               <div>
@@ -27,16 +27,16 @@ export function Footer() {
               {siteConfig.tagline}
             </p>
             <div className="flex gap-2 mt-4">
-              <a href={siteConfig.links.github} className="w-9 h-9 rounded-full bg-white dark:bg-slate-800 shadow-cute flex items-center justify-center hover:bg-primary-50">
+              <a href={siteConfig.links.github} className="w-9 h-9 rounded-full bg-white dark:bg-slate-800 shadow-soft flex items-center justify-center hover:bg-primary-50">
                 <Github className="w-4 h-4" />
               </a>
-              <a href={siteConfig.links.facebook} className="w-9 h-9 rounded-full bg-white dark:bg-slate-800 shadow-cute flex items-center justify-center hover:bg-primary-50">
+              <a href={siteConfig.links.facebook} className="w-9 h-9 rounded-full bg-white dark:bg-slate-800 shadow-soft flex items-center justify-center hover:bg-primary-50">
                 <Facebook className="w-4 h-4" />
               </a>
-              <a href={siteConfig.links.youtube} className="w-9 h-9 rounded-full bg-white dark:bg-slate-800 shadow-cute flex items-center justify-center hover:bg-primary-50">
+              <a href={siteConfig.links.youtube} className="w-9 h-9 rounded-full bg-white dark:bg-slate-800 shadow-soft flex items-center justify-center hover:bg-primary-50">
                 <Youtube className="w-4 h-4" />
               </a>
-              <a href={`mailto:${siteConfig.contactEmail}`} className="w-9 h-9 rounded-full bg-white dark:bg-slate-800 shadow-cute flex items-center justify-center hover:bg-primary-50">
+              <a href={`mailto:${siteConfig.contactEmail}`} className="w-9 h-9 rounded-full bg-white dark:bg-slate-800 shadow-soft flex items-center justify-center hover:bg-primary-50">
                 <Mail className="w-4 h-4" />
               </a>
             </div>
@@ -88,7 +88,7 @@ export function Footer() {
               <input
                 type="email"
                 placeholder="Email của bố mẹ"
-                className="px-4 py-2 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm focus:border-primary-400 outline-none"
+                className="px-4 py-2 rounded-xl border border-cream-100 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm focus:border-primary-400 outline-none"
               />
               <button
                 type="button"
@@ -100,7 +100,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t-2 border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row justify-between gap-2 text-xs text-slate-500">
+        <div className="mt-10 pt-6 border-t border-cream-100 dark:border-slate-800 flex flex-col sm:flex-row justify-between gap-2 text-xs text-slate-500">
           <p>© {new Date().getFullYear()} {siteConfig.name}. Học vui mỗi ngày 🌸</p>
           <p>Phát triển bởi {siteConfig.author}</p>
         </div>

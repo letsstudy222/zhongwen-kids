@@ -115,8 +115,8 @@ export default function ParentsPage() {
                   </p>
                   <p className="text-xs text-slate-500 font-bold">XP đạt</p>
                 </div>
-                <div className="text-center p-3 rounded-2xl bg-emerald-50 dark:bg-emerald-900/20">
-                  <p className="text-3xl font-extrabold text-emerald-600">8</p>
+                <div className="text-center p-3 rounded-2xl bg-success-50 dark:bg-success-900/20">
+                  <p className="text-3xl font-extrabold text-secondary-600">8</p>
                   <p className="text-xs text-slate-500 font-bold">
                     Bài học xong
                   </p>

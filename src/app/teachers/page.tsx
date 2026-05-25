@@ -10,7 +10,7 @@ const resources = [
     desc: '12 trang | 4 tiết học | Bao gồm hoạt động và bài tập',
     type: 'PDF',
     size: '2.4 MB',
-    color: 'from-rose-300 to-pink-400'
+    color: 'from-primary-300 to-blush-300'
   },
   {
     emoji: '🖨️',
@@ -18,7 +18,7 @@ const resources = [
     desc: 'In ra cho học sinh luyện viết tại lớp',
     type: 'PDF',
     size: '850 KB',
-    color: 'from-sky-300 to-blue-400'
+    color: 'from-secondary-200 to-lavender-300'
   },
   {
     emoji: '🎴',
@@ -26,7 +26,7 @@ const resources = [
     desc: 'In khổ A4, cắt thành thẻ – có hình minh hoạ',
     type: 'PDF',
     size: '5.1 MB',
-    color: 'from-amber-300 to-orange-400'
+    color: 'from-accent-300 to-accent-400'
   },
   {
     emoji: '🎬',
@@ -34,7 +34,7 @@ const resources = [
     desc: '40 slide kèm hiệu ứng animation cho lớp học',
     type: 'PPTX',
     size: '12 MB',
-    color: 'from-purple-300 to-fuchsia-400'
+    color: 'from-lavender-300 to-lavender-400'
   },
   {
     emoji: '📊',
@@ -42,7 +42,7 @@ const resources = [
     desc: 'Excel template theo dõi tiến độ cả lớp',
     type: 'XLSX',
     size: '180 KB',
-    color: 'from-emerald-300 to-teal-400'
+    color: 'from-secondary-300 to-secondary-400'
   },
   {
     emoji: '🎯',
@@ -50,7 +50,7 @@ const resources = [
     desc: '5 đề thi thử có đáp án chi tiết',
     type: 'PDF',
     size: '3.2 MB',
-    color: 'from-yellow-300 to-amber-400'
+    color: 'from-accent-200 to-accent-300'
   }
 ];
 

@@ -8,42 +8,42 @@ const upcomingGames = [
     emoji: '🎴',
     title: 'Lật thẻ trí nhớ',
     desc: 'Tìm cặp chữ Hán giống nhau bằng cách lật từng thẻ.',
-    color: 'from-rose-300 to-pink-400',
+    color: 'from-primary-300 to-blush-300',
     difficulty: 'Dễ'
   },
   {
     emoji: '👂',
     title: 'Nghe và chọn',
     desc: 'Lắng nghe phát âm rồi chọn chữ Hán đúng.',
-    color: 'from-sky-300 to-blue-400',
+    color: 'from-secondary-200 to-lavender-300',
     difficulty: 'Trung bình'
   },
   {
     emoji: '🎯',
     title: 'Đoán thanh điệu',
     desc: 'Phân biệt 4 thanh điệu pinyin qua âm thanh.',
-    color: 'from-purple-300 to-fuchsia-400',
+    color: 'from-lavender-300 to-lavender-400',
     difficulty: 'Trung bình'
   },
   {
     emoji: '✏️',
     title: 'Viết chữ Hán',
     desc: 'Tập viết chữ theo thứ tự nét cơ bản.',
-    color: 'from-amber-300 to-orange-400',
+    color: 'from-accent-300 to-accent-400',
     difficulty: 'Khó'
   },
   {
     emoji: '🐼',
     title: 'Phiêu lưu cùng Panda',
     desc: 'Học từ vựng theo bản đồ phiêu lưu hấp dẫn.',
-    color: 'from-emerald-300 to-teal-400',
+    color: 'from-secondary-300 to-secondary-400',
     difficulty: 'Tổng hợp'
   },
   {
     emoji: '🎲',
     title: 'Xúc xắc từ vựng',
     desc: 'Lăn xúc xắc, gặp từ nào học từ đó!',
-    color: 'from-yellow-300 to-amber-400',
+    color: 'from-accent-200 to-accent-300',
     difficulty: 'Dễ'
   }
 ];

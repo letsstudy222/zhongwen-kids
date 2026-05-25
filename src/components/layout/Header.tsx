@@ -18,12 +18,12 @@ export function Header() {
     href === '/' ? pathname === '/' : pathname?.startsWith(href);
 
   return (
-    <header className="sticky top-0 z-40 bg-cream/90 dark:bg-slate-900/90 backdrop-blur-md border-b-2 border-slate-100 dark:border-slate-800">
+    <header className="sticky top-0 z-40 bg-cream/85 dark:bg-slate-900/90 backdrop-blur-md border-b border-cream-100 dark:border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-primary-400 to-accent-400 flex items-center justify-center text-2xl shadow-cute group-hover:rotate-6 transition-transform">
+            <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-primary-300 to-accent-300 flex items-center justify-center text-2xl shadow-soft group-hover:rotate-6 transition-transform">
               🐼
             </div>
             <div className="hidden sm:block">
@@ -58,9 +58,9 @@ export function Header() {
           {/* Right cluster */}
           <div className="flex items-center gap-2">
             {/* Streak badge */}
-            <div className="hidden sm:flex items-center gap-1 px-3 py-1.5 rounded-full bg-gradient-to-r from-orange-100 to-amber-100 dark:from-orange-900/40 dark:to-amber-900/40 border-2 border-orange-200 dark:border-orange-800">
-              <Flame className="w-4 h-4 text-orange-500" />
-              <span className="text-sm font-extrabold text-orange-700 dark:text-orange-300">
+            <div className="hidden sm:flex items-center gap-1 px-3 py-1.5 rounded-full bg-gradient-to-r from-accent-50 to-accent-100 dark:from-accent-900/40 dark:to-accent-800/40 border border-accent-200 dark:border-accent-700">
+              <Flame className="w-4 h-4 text-accent-500" />
+              <span className="text-sm font-extrabold text-accent-700 dark:text-accent-300">
                 {streak}
               </span>
             </div>
@@ -76,7 +76,7 @@ export function Header() {
 
             <button
               onClick={() => setOpen(!open)}
-              className="lg:hidden w-10 h-10 rounded-full bg-white dark:bg-slate-800 shadow-cute border-2 border-slate-100 dark:border-slate-700 flex items-center justify-center"
+              className="lg:hidden w-10 h-10 rounded-full bg-white dark:bg-slate-800 shadow-soft border border-cream-100 dark:border-slate-700 flex items-center justify-center"
               aria-label="Mở menu"
             >
               {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -94,10 +94,10 @@ export function Header() {
                   href={item.href}
                   onClick={() => setOpen(false)}
                   className={cn(
-                    'px-3 py-2.5 rounded-2xl font-bold text-sm flex items-center gap-2 border-2',
+                    'px-3 py-2.5 rounded-2xl font-bold text-sm flex items-center gap-2 border',
                     isActive(item.href)
-                      ? 'bg-primary-100 border-primary-300 text-primary-700 dark:bg-primary-900/40 dark:border-primary-700 dark:text-primary-200'
-                      : 'bg-white dark:bg-slate-800 border-slate-100 dark:border-slate-700 text-slate-700 dark:text-slate-200'
+                      ? 'bg-primary-50 border-primary-200 text-primary-700 dark:bg-primary-900/40 dark:border-primary-700 dark:text-primary-200'
+                      : 'bg-white dark:bg-slate-800 border-cream-100 dark:border-slate-700 text-slate-700 dark:text-slate-200'
                   )}
                 >
                   <span>{item.emoji}</span>

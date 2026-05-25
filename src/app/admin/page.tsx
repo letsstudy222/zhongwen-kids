@@ -27,10 +27,10 @@ const contentItems = [
 ];
 
 const colorMap = {
-  primary: 'from-primary-100 to-pink-100 dark:from-primary-900/20 dark:to-pink-900/20 border-primary-200',
-  secondary: 'from-secondary-100 to-sky-100 dark:from-secondary-900/20 dark:to-sky-900/20 border-secondary-200',
-  accent: 'from-accent-100 to-amber-100 dark:from-accent-900/20 dark:to-amber-900/20 border-accent-200',
-  success: 'from-emerald-100 to-teal-100 dark:from-emerald-900/20 dark:to-teal-900/20 border-emerald-200'
+  primary: 'from-primary-50 to-primary-100 dark:from-primary-900/20 dark:to-primary-800/20 border-primary-200',
+  secondary: 'from-secondary-50 to-secondary-100 dark:from-secondary-900/20 dark:to-secondary-800/20 border-secondary-200',
+  accent: 'from-accent-50 to-accent-100 dark:from-accent-900/20 dark:to-accent-800/20 border-accent-200',
+  success: 'from-success-50 to-secondary-100 dark:from-success-900/20 dark:to-secondary-900/20 border-success-200'
 };
 
 export default function AdminPage() {
@@ -152,7 +152,7 @@ export default function AdminPage() {
             {contentItems.map((it, i) => (
               <li
                 key={i}
-                className="flex items-center gap-4 p-3 rounded-2xl border-2 border-slate-100 dark:border-slate-700 hover:border-primary-200"
+                className="flex items-center gap-4 p-3 rounded-2xl border border-cream-100 dark:border-slate-700 hover:border-primary-200"
               >
                 <div className="text-3xl">{it.emoji}</div>
                 <div className="flex-1 min-w-0">

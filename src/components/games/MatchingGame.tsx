@@ -130,11 +130,11 @@ export function MatchingGame() {
                   onClick={() => handlePick('hanzi', t.id)}
                   disabled={isMatched}
                   className={cn(
-                    'w-full rounded-2xl py-5 px-3 border-2 transition-all font-chinese text-3xl font-bold shadow-cute',
-                    isMatched && 'bg-emerald-100 border-emerald-300 text-emerald-700 opacity-60',
+                    'w-full rounded-2xl py-5 px-3 border-2 transition-all font-chinese text-3xl font-bold shadow-soft',
+                    isMatched && 'bg-success-100 border-success-300 text-secondary-700 opacity-60',
                     isSelected && !isMatched && 'bg-primary-100 border-primary-400 text-primary-700 scale-105',
                     !isMatched && !isSelected && 'bg-white dark:bg-slate-700 border-slate-200 dark:border-slate-600 hover:border-primary-300',
-                    isWrong && 'animate-shake bg-red-100 border-red-300'
+                    isWrong && 'animate-shake bg-primary-50 border-primary-300'
                   )}
                 >
                   {t.hanzi}
@@ -155,11 +155,11 @@ export function MatchingGame() {
                   onClick={() => handlePick('meaning', t.id)}
                   disabled={isMatched}
                   className={cn(
-                    'w-full rounded-2xl py-5 px-3 border-2 transition-all font-display text-lg font-bold shadow-cute',
-                    isMatched && 'bg-emerald-100 border-emerald-300 text-emerald-700 opacity-60',
+                    'w-full rounded-2xl py-5 px-3 border-2 transition-all font-display text-lg font-bold shadow-soft',
+                    isMatched && 'bg-success-100 border-success-300 text-secondary-700 opacity-60',
                     isSelected && !isMatched && 'bg-secondary-100 border-secondary-400 text-secondary-700 scale-105',
                     !isMatched && !isSelected && 'bg-white dark:bg-slate-700 border-slate-200 dark:border-slate-600 hover:border-secondary-300',
-                    isWrong && 'animate-shake bg-red-100 border-red-300'
+                    isWrong && 'animate-shake bg-primary-50 border-primary-300'
                   )}
                 >
                   {t.meaningVi}
