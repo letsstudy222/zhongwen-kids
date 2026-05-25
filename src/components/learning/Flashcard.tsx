@@ -1,0 +1,78 @@
+'use client';
+
+import { useState } from 'react';
+import { AudioButton } from '@/components/ui/AudioButton';
+import type { VocabWord } from '@/types';
+import { cn } from '@/utils/cn';
+
+interface FlashcardProps {
+  word: VocabWord;
+  className?: string;
+}
+
+/**
+ * Thẻ Flashcard có thể lật để xem nghĩa.
+ * Mặt trước: chữ Hán + emoji minh hoạ.
+ * Mặt sau: pinyin + nghĩa tiếng Việt + ví dụ.
+ */
+export function Flashcard({ word, className }: FlashcardProps) {
+  const [flipped, setFlipped] = useState(false);
+
+  return (
+    <div
+      className={cn('w-full h-64 perspective-1000 cursor-pointer', className)}
+      onClick={() => setFlipped(!flipped)}
+      style={{ perspective: '1000px' }}
+    >
+      <div
+        className="relative w-full h-full transition-transform duration-500"
+        style={{
+          transformStyle: 'preserve-3d',
+          transform: flipped ? 'rotateY(180deg)' : 'rotateY(0)'
+        }}
+      >
+        {/* Front */}
+        <div
+          className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary-100 to-accent-100 dark:from-primary-900/30 dark:to-accent-900/30 border-2 border-primary-200 dark:border-primary-800 shadow-cute flex flex-col items-center justify-center p-6"
+          style={{ backfaceVisibility: 'hidden' }}
+        >
+          <div className="text-6xl mb-2">{word.imageEmoji ?? '✨'}</div>
+          <p className="font-chinese text-5xl font-bold text-primary-700 dark:text-primary-200">
+            {word.hanzi}
+          </p>
+          <p className="mt-2 text-xs text-slate-500 uppercase tracking-wider font-bold">
+            Nhấn để lật
+          </p>
+        </div>
+
+        {/* Back */}
+        <div
+          className="absolute inset-0 rounded-3xl bg-white dark:bg-slate-800 border-2 border-secondary-200 dark:border-secondary-800 shadow-cute flex flex-col items-center justify-center p-6"
+          style={{
+            backfaceVisibility: 'hidden',
+            transform: 'rotateY(180deg)'
+          }}
+        >
+          <p className="font-chinese text-3xl font-bold mb-1">{word.hanzi}</p>
+          <p className="text-secondary-600 dark:text-secondary-300 font-bold text-lg italic">
+            {word.pinyin}
+          </p>
+          <p className="mt-2 text-xl font-bold text-slate-800 dark:text-slate-100">
+            {word.meaningVi}
+          </p>
+          {word.example && (
+            <p className="mt-3 text-sm text-slate-500 dark:text-slate-400 italic text-center">
+              &ldquo;{word.example}&rdquo;
+            </p>
+          )}
+          <div
+            className="mt-3"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <AudioButton text={word.hanzi} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

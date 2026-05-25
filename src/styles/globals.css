@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import friendly fonts */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&family=Noto+Sans+SC:wght@400;500;700&family=Ma+Shan+Zheng&display=swap');
+
+:root {
+  --background: 255 248 236;       /* cream */
+  --foreground: 31 41 55;          /* slate-800 */
+  --card: 255 255 255;
+  --muted: 243 244 246;
+}
+
+.dark {
+  --background: 17 24 39;          /* slate-900 */
+  --foreground: 248 250 252;       /* slate-50 */
+  --card: 30 41 59;                /* slate-800 */
+  --muted: 51 65 85;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body, 'Nunito'), system-ui, sans-serif;
+  background-color: rgb(var(--background));
+  color: rgb(var(--foreground));
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Display font for headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Baloo 2', system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.font-chinese {
+  font-family: 'Noto Sans SC', 'Ma Shan Zheng', serif;
+}
+
+/* Reusable components */
+@layer components {
+  .btn-cute {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-2xl font-bold transition-all duration-200 active:translate-y-1 active:shadow-none;
+  }
+  .btn-primary {
+    @apply btn-cute bg-primary-500 text-white shadow-cute hover:bg-primary-600;
+  }
+  .btn-secondary {
+    @apply btn-cute bg-secondary-500 text-white shadow-cute hover:bg-secondary-600;
+  }
+  .btn-accent {
+    @apply btn-cute bg-accent-400 text-slate-900 shadow-cute hover:bg-accent-500;
+  }
+  .btn-outline {
+    @apply btn-cute bg-white text-primary-600 border-2 border-primary-200 shadow-cute hover:border-primary-400;
+  }
+
+  .card-cute {
+    @apply bg-white dark:bg-slate-800 rounded-3xl p-6 shadow-cute border-2 border-slate-100 dark:border-slate-700;
+  }
+
+  .pill {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold;
+  }
+
+  /* Decorative dotted background */
+  .bg-dots {
+    background-image: radial-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  .dark .bg-dots {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(255 193 211);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(255 143 174);
+}
